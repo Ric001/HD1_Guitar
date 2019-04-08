@@ -4,15 +4,15 @@ public class Guitar
 {
     private String serialNumber;
     private double price;
-    private String builder;
+    private EBuilder builder;
     private String model;
-    private String type;
-    private String backwood;
-    private String topWood;
+    private EType type;
+    private EWood backwood;
+    private EWood topWood;
 
-    public Guitar(String serialNumber, double price, String builder,
-                    String model, String type, String backwood, 
-                    String topWood) {
+    public Guitar(String serialNumber, double price, EBuilder builder,
+                    String model, EType type, EWood backwood, 
+                    EWood topWood) {
         this.serialNumber = serialNumber;
         this.price = price;
         this.builder = builder;
@@ -38,12 +38,12 @@ public class Guitar
         this.price = price;
     }
     
-    public String getBuilder() 
+    public EBuilder getBuilder() 
     {
         return builder;
     }
 
-    public void setBuilder(String builder) {
+    public void setBuilder(EBuilder builder) {
         this.builder = builder;
     }
 
@@ -55,27 +55,44 @@ public class Guitar
         this.model = model;
     }
 
-    public String getType() {
+    public EType getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(EType type) {
         this.type = type;
     }
 
-    public String getBackWood() {
+    public EWood getBackWood() {
         return backwood;
     }
 
-    public void setBackWood(String backwood) {
+    public void setBackWood(EWood backwood) {
         this.backwood = backwood;
     }
 
-    public String getTopWood() {
+    public EWood getTopWood() {
         return topWood;
     }
 
-    public void setTopWood(String topWood) {
+    public void setTopWood(EWood topWood) {
         this.topWood = topWood;
+    }
+
+    @Override
+    public boolean equals(Object incomingGuitar) {
+        Guitar guitar = (Guitar) incomingGuitar;
+        if (!builder.equals(guitar.getBuilder()))
+            return false;
+        if (!model.equals(guitar.getModel()))
+            return false;
+        if (!type.equals(guitar.getType()))
+            return false;
+        if (!backwood.equals(guitar.getBackWood()))
+            return false;
+        if (!topWood.equals(guitar.getTopWood()))
+            return false;
+
+        return true;
     }
 }
