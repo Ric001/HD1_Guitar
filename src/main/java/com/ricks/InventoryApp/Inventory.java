@@ -3,6 +3,7 @@ package com.ricks.InventoryApp;
 import java.util.LinkedList;
 import java.util.List;
 import com.ricks.InventoryApp.models.Guitar;
+import com.ricks.InventoryApp.models.GuitarSpec;
 public class Inventory {
     private List<Guitar> guitars;
     
@@ -22,10 +23,10 @@ public class Inventory {
         return null;
     }
 
-    public List<Guitar> search(Guitar searchGuitar) {
+    public List<Guitar> search(GuitarSpec searchGuitar) {
         List<Guitar> matchingGuitars = new LinkedList<Guitar>();
         for (Guitar guitar : guitars) {
-            if (guitars.equals(guitars)) 
+            if (guitar.getSpecs().matches(searchGuitar))
                 matchingGuitars.add(guitar);
         }
         return matchingGuitars;

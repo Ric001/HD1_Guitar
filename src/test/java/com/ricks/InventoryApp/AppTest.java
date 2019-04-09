@@ -4,6 +4,9 @@ import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
+import com.ricks.InventoryApp.models.Guitar;
+import com.ricks.InventoryApp.models.EBuilder;
+import com.ricks.InventoryApp.models.EType;
 /**
  * Unit test for simple App.
  */
@@ -33,6 +36,8 @@ public class AppTest
      */
     public void testApp()
     {
-        assertTrue( true );
+        final Guitar guitar = new Guitar();
+        guitar.setBuilder(EBuilder.GIBSON);
+        assertTrue("The Builder Value is equal to null",(guitar.getBuilder() == null));
     }
 }
